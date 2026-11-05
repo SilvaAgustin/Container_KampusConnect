@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContainerLab | Premium Docker Learning</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- BACKGROUND EFFECTS -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar glass-panel">
+        <div class="logo">
+            <i class="ph-fill ph-cube"></i> Container<span>Lab</span>
+        </div>
+        
+        <div class="menu">
+            <p class="menu-label">Workspace</p>
+            <a href="#" class="menu-item active" onclick="showSection('dashboard', this)">
+                <i class="ph ph-squares-four"></i> Dashboard
+            </a>
+            <a href="#" class="menu-item" onclick="showSection('module1', this)">
+                <i class="ph ph-rocket-launch"></i> Docker Basics
+            </a>
+            <a href="#" class="menu-item" onclick="showSection('module2', this)">
+                <i class="ph ph-package"></i> Image Builder
+            </a>
+            <a href="#" class="menu-item" onclick="showSection('module3', this)">
+                <i class="ph ph-database"></i> Storage & Network
+            </a>
+            <a href="#" class="menu-item" onclick="showSection('module4', this)">
+                <i class="ph ph-stack"></i> Orchestration
+            </a>
+
+            <p class="menu-label">Utilities</p>
+            <a href="#" class="menu-item" onclick="showSection('troubleshoot', this)">
+                <i class="ph ph-wrench"></i> Troubleshooting
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="avatar">M</div>
+                <div class="user-info">
+                    <p class="name">Mahasiswa</p>
+                    <p class="role">Pro Tier</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        
+        <!-- TOP HEADER -->
+        <header class="top-header">
+            <div class="breadcrumbs">
+                <span>Workspace</span> <i class="ph ph-caret-right"></i> <span class="current" id="breadcrumb-text">Dashboard</span>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn"><i class="ph ph-bell"></i></button>
+                <button class="icon-btn"><i class="ph ph-gear"></i></button>
+            </div>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page-section active">
+            <div class="hero-bento">
+                <div class="bento-card main-hero glass-panel">
+                    <div class="hero-content">
+                        <span class="tag"><i class="ph-fill ph-sparkle"></i> Interactive Learning</span>
+                        <h1>Master Containerization <br><span class="text-gradient">Step by Step.</span></h1>
+                        <p>Platform eksklusif untuk menguasai Docker. Dari menjalankan container pertama hingga orkestrasi tingkat lanjut.</p>
+                        <button class="btn-primary" onclick="document.querySelectorAll('.menu-item')[1].click()">
+                            Lanjutkan Belajar <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="hero-visual">
+                        <!-- Terminal Graphic -->
+                        <div class="mock-terminal">
+                            <div class="terminal-header">
+                                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            </div>
+                            <div class="terminal-body">
+                                <p><span class="prompt">$</span> docker run hello-world</p>
+                                <p class="success">Hello from Docker!</p>
+                                <p class="muted">This message shows that your installation appears to be working correctly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Learning Path</h2>
+                <span class="badge-status">25% Completed</span>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="bento-card stat-card glass-panel done">
+                    <div class="icon-wrapper"><i class="ph-fill ph-check-circle"></i></div>
+                    <h3>Fundamentals</h3>
+                    <p>Docker CLI & Container Lifecycle</p>
+                    <div class="progress-bar"><div class="progress" style="width: 100%;"></div></div>
+                </div>
+                <div class="bento-card stat-card glass-panel active">
+                    <div class="icon-wrapper"><i class="ph-fill ph-spinner-gap"></i></div>
+                    <h3>Image Creation</h3>
+                    <p>Dockerfile & Build Process</p>
+                    <div class="progress-bar"><div class="progress" style="width: 45%;"></div></div>
+                </div>
+                <div class="bento-card stat-card glass-panel locked">
+                    <div class="icon-wrapper"><i class="ph-fill ph-lock-key"></i></div>
+                    <h3>Data Persistence</h3>
+                    <p>Volumes & Bind Mounts</p>
+                    <div class="progress-bar"><div class="progress" style="width: 0%;"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 1 -->
+        <section id="module1" class="page-section">
+            <div class="module-header">
+                <h1> Getting Started with Docker</h1>
+                <p>Pelajari cara memverifikasi instalasi Docker dan menjalankan container pertama Anda melalui terminal.</p>
+            </div>
+
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                    <div class="title">powershell — docker run hello-world</div>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="ph ph-copy"></i> Copy</button>
+                </div>
+                <div class="terminal-body">
+                    <code>docker run hello-world</code>
+                </div>
+            </div>
+            <p class="note"><i class="ph ph-info"></i> Perintah ini akan mengunduh image uji dan mencetak pesan sukses.</p>
+
+            <div class="terminal-window mt-20">
+                <div class="terminal-header">
+                    <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                    <div class="title">powershell — nginx server</div>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="ph ph-copy"></i> Copy</button>
+                </div>
+                <div class="terminal-body">
+                    <code>docker run -d --name my-web -p 8080:80 nginx:alpine</code>
+                </div>
+            </div>
+            <p class="note"><i class="ph ph-info"></i> Buka browser ke <code>http://localhost:8080</code> untuk melihat web server berjalan.</p>
+        </section>
+
+        <!-- MODULE 2 -->
+        <section id="module2" class="page-section">
+            <div class="module-header">
+                <h1> Building Custom Images</h1>
+                <p>Pelajari cara mengemas aplikasi Anda sendiri ke dalam Docker Image menggunakan Dockerfile.</p>
+            </div>
+
+            <div class="split-layout">
+                <div class="code-editor glass-panel">
+                    <div class="editor-header">
+                        <span>Dockerfile</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="ph ph-copy"></i> Copy</button>
+                    </div>
+                    <pre><code><span class="keyword">FROM</span> node:18-alpine
+<span class="keyword">WORKDIR</span> /app
+<span class="keyword">COPY</span> . .
+<span class="keyword">RUN</span> npm install
+<span class="keyword">EXPOSE</span> 3000
+<span class="keyword">CMD</span> ["node", "index.js"]</code></pre>
+                </div>
+
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                        <div class="title">powershell</div>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="ph ph-copy"></i> Copy</button>
+                    </div>
+                    <div class="terminal-body">
+                        <code>docker build -t my-app:1.0 .</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 3 -->
+        <section id="module3" class="page-section">
+            <div class="module-header">
+                <h1> Storage & Networking</h1>
+                <p>Pelajari cara menyimpan data secara permanen dan menghubungkan antar container.</p>
+            </div>
+            <div class="alert warning glass-panel">
+                <i class="ph-fill ph-warning-circle"></i> Modul ini sedang dalam pengembangan. Selesaikan modul sebelumnya untuk membuka akses.
+            </div>
+        </section>
+
+        <!-- MODULE 4 -->
+        <section id="module4" class="page-section">
+            <div class="module-header">
+                <h1>🎼 Multi-Container (Docker Compose)</h1>
+                <p>Jalankan aplikasi web dan database secara bersamaan hanya dengan satu perintah.</p>
+            </div>
+            <div class="alert info glass-panel">
+                <i class="ph-fill ph-info"></i> Sneak Peek: Nanti Anda akan menggunakan perintah <code>docker compose up -d</code> untuk menyalakan seluruh ekosistem aplikasi.
+            </div>
+        </section>
+
+        <!-- TROUBLESHOOTING -->
+        <section id="troubleshoot" class="page-section">
+            <div class="module-header">
+                <h1> Troubleshooting Guide</h1>
+                <p>Solusi cepat untuk masalah umum yang sering dihadapi developer saat menggunakan Docker.</p>
+            </div>
+            
+            <div class="accordion">
+                <div class="accordion-item glass-panel">
+                    <button class="accordion-header">
+                        <span>Error: "Cannot connect to the Docker daemon"</span>
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p><strong>Penyebab:</strong> Docker Engine (Docker Desktop) sedang tidak berjalan di latar belakang.</p>
+                        <p><strong>Solusi:</strong> Buka aplikasi Docker Desktop, tunggu hingga status "Engine Running" (ikon berwarna hijau), lalu jalankan kembali perintah Anda di terminal.</p>
+                    </div>
+                </div>
+                <div class="accordion-item glass-panel">
+                    <button class="accordion-header">
+                        <span>Error: "Port is already allocated"</span>
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p><strong>Penyebab:</strong> Port yang ingin Anda gunakan (misal 8080) sudah dipakai oleh aplikasi atau container lain.</p>
+                        <p><strong>Solusi:</strong> Hentikan container yang sedang berjalan dengan <code>docker ps</code> lalu <code>docker stop [CONTAINER_ID]</code>, atau ubah port di perintah run Anda menjadi <code>-p 8081:80</code>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function showSection(sectionId, element) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            
+            document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+            if(element) element.classList.add('active');
+
+            // Update Breadcrumb
+            const title = element.innerText.trim();
+            document.getElementById('breadcrumb-text').innerText = title;
+        }
+
+        function copyCode(btn) {
+            const terminal = btn.closest('.terminal-window');
+            const code = terminal.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<i class="ph ph-check"></i> Copied!';
+                btn.style.color = "#10b981";
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.color = "";
+                }, 2000);
+            });
+        }
+
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Close others
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    if(i !== item) {
+                        i.classList.remove('active');
+                        i.querySelector('.accordion-content').style.display = "none";
+                        i.querySelector('i').className = "ph ph-plus";
+                    }
+                });
+
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                    item.classList.remove('active');
+                    icon.className = "ph ph-plus";
+                } else {
+                    content.style.display = "block";
+                    item.classList.add('active');
+                    icon.className = "ph ph-minus";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
