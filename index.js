@@ -10,11 +10,13 @@ app.get('/', (req, res) => {
 
 // Rute API untuk data layanan
 app.get('/api/layanan', (req, res) => {
-  const layanan = [
-    { id: 1, nama: 'Peminjaman Ruang', status: 'Tersedia' },
-    { id: 2, nama: 'Peminjaman Proyektor', status: 'Tersedia' }
+  const layananBelajarDocker = [
+    { id: 1, nama: 'Docker Basics', status: 'Tersedia' },
+    { id: 2, nama: 'Image Builder', status: 'Tersedia' },
+    { id: 3, nama: 'Storage & Network', status: 'Tersedia' },
+    { id: 4, nama: 'Orchestration', status: 'Tersedia' }
   ];
-  res.json(layanan);
+  res.json(layananBelajarDocker);
 });
 
 // Rute untuk mengecek kesehatan server
