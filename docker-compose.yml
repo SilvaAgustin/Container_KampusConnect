@@ -1,8 +1,8 @@
 services:
   web:
-    build: .  # Titik (.) berarti mencari Dockerfile di folder saat ini
-    ports:
-      - "8080:3000"  # Port 8080 laptop ke Port 3000 container (Node.js)
+    build: .
+    expose:
+      - "3000"
     environment:
       DB_HOST: db
       DB_NAME: ${DB_NAME}
@@ -13,6 +13,27 @@ services:
         condition: service_healthy
     networks:
       - kampus-net
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"  # Port 8080 laptop ke Port 80 container (Nginx)
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./public:/usr/share/nginx/html:ro
+    depends_on:
+      - web
+    networks:
+      - kampus-net
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate --url http://nginx:80
+    depends_on:
+      - nginx
+    networks:
+      - kampus-net
+
   db:
     image: mysql:8.4
     environment:
