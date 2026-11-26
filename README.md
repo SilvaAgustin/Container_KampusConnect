@@ -107,7 +107,7 @@ Perintah tersebut mempertahankan volume database. Jangan gunakan `docker compose
 ## Endpoint
 
 - `GET /` — halaman utama.
-- `GET /api/layanan` — daftar layanan belajar Docker dalam format JSON.
-- `GET /health` — status kesehatan server dalam format JSON.
+- `GET /api/layanan` — daftar layanan belajar Docker dalam format JSON (diambil dari tabel `layanan` di MySQL).
+- `GET /health` — status kesehatan server dan koneksi database MySQL (`{ status: "ok", database: "connected" }`).
 
-Saat ini daftar layanan disediakan langsung oleh aplikasi (`index.js`). Walaupun MySQL ikut dijalankan melalui Docker Compose, aplikasi belum membaca atau menyimpan data layanan di database.
+Saat pertama kali berjalan, aplikasi otomatis membuat tabel `layanan` di database MySQL (`db`) dan mengisi data awal jika tabel masih kosong.
